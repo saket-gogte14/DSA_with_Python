@@ -21,7 +21,7 @@ class LinkedList:
         temp=self.head
         if temp != None:
             while temp is not None:
-                print(temp.value)
+                print(temp.value, end = '')
                 if temp != self.tail:
                     print (",", end = '')
                 temp=temp.next
@@ -56,17 +56,19 @@ class LinkedList:
 
         self.length=self.length-1
 
-test_linked_list=LinkedList(4)
 
-test_linked_list.append(8)
-test_linked_list.append(9)
+if __name__ == '__main__':
+    test_linked_list=LinkedList(4)
 
-test_linked_list.printList()
+    test_linked_list.append(8)
+    test_linked_list.append(9)
+    
+    test_linked_list.printList()
 
-test_linked_list.pop()
-test_linked_list.append(10)
-test_linked_list.pop()
-test_linked_list.pop()
-test_linked_list.append(11)
+    test_linked_list.pop()
+    test_linked_list.append(10)
+    test_linked_list.pop()
+    test_linked_list.pop()
+    test_linked_list.append(11)
 
-test_linked_list.printList()
+    test_linked_list.printList()
