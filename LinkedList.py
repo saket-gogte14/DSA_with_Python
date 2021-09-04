@@ -129,7 +129,7 @@ class LinkedList:
             return False
         elif index == 0:
             return self.pop_first()
-        elif index == self.length:
+        elif index == self.length-1:
             return self.pop()
         else:
             pre=self.get(index-1)
@@ -151,6 +151,7 @@ if __name__ == '__main__':
     test_linked_list.append(10)
     test_linked_list.pop()
     test_linked_list.pop()
+    test_linked_list.printList()
     test_linked_list.append(11)
     test_linked_list.prepend(14)
     test_linked_list.printList()
