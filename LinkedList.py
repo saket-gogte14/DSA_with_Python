@@ -1,5 +1,5 @@
 ##Created by : Saket Gogte
-##Purpose : Created a linked list 
+##Purpose : Created a linked list and performs multiple operations on it with the suite of menu itesm on display
 import os
 #Class Node to instantiate a node object
 class Node:
