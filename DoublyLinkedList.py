@@ -98,10 +98,15 @@ class DoublyLinkedList:
         if self.length == 0 or index < 0 or index > self.length-1:
             return None
 
-        temp = self.head
-        for _ in range(index):
-            temp=temp.next
-        
+        if index < self.length/2:
+            temp = self.head
+            for _ in range(index):
+                temp=temp.next
+        else:
+            temp = self.tail
+            for _ in range(self.length-1,index,-1):
+                temp=temp.prev
+
         return temp
     
     def set_value(self,index,value):            
