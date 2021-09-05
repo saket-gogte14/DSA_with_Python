@@ -47,7 +47,7 @@ class Stack:
             temp=self.top
             self.top=temp.next
             temp.next=None
-
+            
         self.height=self.height-1
         return True
 
