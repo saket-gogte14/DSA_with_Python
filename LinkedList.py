@@ -1,6 +1,6 @@
 ##Created by : Saket Gogte
 ##Purpose : Created a linked list 
-
+import os
 #Class Node to instantiate a node object
 class Node:
     def __init__(self,value):
@@ -137,31 +137,82 @@ class LinkedList:
             pre.next.next=None
             pre.next=post
             return True
+        
+    def reverse(self):
+        temp=self.head
+        after=self.head.next
+        before=None
+        temp_head=self.head
+        self.head=self.tail
+        self.tail=temp_head
+
+        while temp != None:
+            temp.next=before
+            before=temp
+            temp=after
+            if after != None:
+                after=after.next
+
+def select_first_choices():
+    print ("\n\ncreate) Create a linked list \nExit) Exit the menu")
+    
+    return input("\nEnter the choices from the above display:")
+
+def select_choices():
+    print ("\n\ncreate) Create a linked list \nappend) Append to the list \nprepend) Prepend to the list \ninsert) Pop the last element from the list \npop_first) Pop the first element from the list \nget) Get value at a particular index \nset_value) Set value at a particular index \ninsert) Insert value at a particular index \nremove) Remove value from a particular index position \nreverse) Reverse the linked list \nprint) Print the linked list \nExit) Exit the menu")
+    
+    return input("\nEnter the choices from the above display:")
+
 
 if __name__ == '__main__':
 
-    test_linked_list=LinkedList(4)
+    linked_list=None
 
-    test_linked_list.append(8)
-    test_linked_list.append(9)
-    
-    test_linked_list.printList()
+    choice=select_first_choices()
+    if choice != "Exit":
+        if choice == "create":
+            val=input("Enter the value for the initial " + choice + " :")
+            linked_list=LinkedList(val)
+    else:
+        quit()
 
-    test_linked_list.pop()
-    test_linked_list.append(10)
-    test_linked_list.pop()
-    test_linked_list.pop()
-    test_linked_list.printList()
-    test_linked_list.append(11)
-    test_linked_list.prepend(14)
-    test_linked_list.printList()
-    test_linked_list.pop_first()
-    test_linked_list.printList()
-    #print(test_linked_list.get(1).value)
-    test_linked_list.set_value(0,20)
-    test_linked_list.printList()
-    test_linked_list.insert(2,40)
-    test_linked_list.printList()
-    test_linked_list.remove(2)
-    test_linked_list.printList()
-    
+    os.system('cls')
+
+    choice=select_choices()
+    while choice != "Exit":
+        os.system('cls')
+        if choice == "create":
+            val=input("Enter the value for the initial " + choice + " :")
+            linked_list=LinkedList(val)
+        elif choice == "append":
+            val=input("Enter the value to " + choice + " :")
+            linked_list.append(val)
+        elif choice == "prepend":
+            val=input("Enter the value to " + choice + " :")
+            linked_list.prepend(val)
+        elif choice == "insert":
+            val=input("Enter the value to " + choice + " :")
+            index=input("Enter the index to " + choice + "  :")
+            linked_list.insert(int(index),val)
+        elif choice == "pop":
+            linked_list.pop()
+        elif choice == "pop_first":
+            linked_list.pop_first()
+        elif choice == "set":
+            val=input("Enter the value to " + choice + " :")
+            index=input("Enter the index to " + choice + "  :")
+            linked_list.set_value(int(index),val)
+        elif choice == "get":
+            index=input("Enter the index to " + choice + "  :")
+            print(linked_list.get(int(index)).value)
+        elif choice == "remove":
+            index=input("Enter the index to " + choice + "  :")
+            linked_list.remove(int(index))
+        elif choice == "reverse":
+            linked_list.reverse()
+        elif choice == "print":
+            linked_list.printList()
+        else:
+            print ("Invalid Choice....")
+
+        choice=select_choices()
