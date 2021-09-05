@@ -159,7 +159,7 @@ def select_first_choices():
     return input("\nEnter the choices from the above display:")
 
 def select_choices():
-    print ("\n\nappend) Append to the list \nprepend) Prepend to the list \ninsert) Pop the last element from the list \npop_first) Pop the first element from the list \nget) Get value at a particular index \nset_value) Set value at a particular index \ninsert) Insert value at a particular index \nremove) Remove value from a particular index position \nreverse) Reverse the linked list \nprint) Print the linked list \nExit) Exit the menu")
+    print ("\n\nappend) Append to the list \nprepend) Prepend to the list \ninsert) Pop the last element from the list \npop_first) Pop the first element from the list \nget) Get value at a particular index \nset) Set value at a particular index \ninsert) Insert value at a particular index \nremove) Remove value from a particular index position \nreverse) Reverse the linked list \nprint) Print the linked list \nExit) Exit the menu")
     
     return input("\nEnter the choices from the above display:")
 
