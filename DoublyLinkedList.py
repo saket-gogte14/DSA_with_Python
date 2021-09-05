@@ -147,10 +147,12 @@ class DoublyLinkedList:
             temp.next.prev=temp.prev
             temp.prev=None
             temp.next=None
+            self.length-=1
             return True
         
+        
 def select_first_choices():
-    print ("\n\ncreate) Create a linked list \nExit) Exit the menu")
+    print ("\n\ncreate) Create a Doubly linked list \nExit) Exit the menu")
     
     return input("\nEnter the choices from the above display:")
 
