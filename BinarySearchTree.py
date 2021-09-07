@@ -32,16 +32,42 @@ class BinarySearchTree:
                     temp.right = new_node
                     return True
                 temp = temp.right
+
+    def contains(self, value):
+        temp = self.root
+        while temp is not None:
+            if value == temp.value:
+                return True
+            elif value < temp.value:
+                temp = temp.left
+            else:
+                temp = temp.right
+        
+        return False
+
+def select_choices():
+    print ("\n\ninsert) Add to the BST \nsearch) Search element from the BST \nExit) Exit the menu")
+    
+    return input("\nEnter the choices from the above display:")
     
 
 if __name__ == '__main__':
     my_tree=BinarySearchTree()
-    my_tree.insert(40)
-    my_tree.insert(80)
-    my_tree.insert(30)
-    print (my_tree.root.value)
-    print (my_tree.root.left.value)
-    print (my_tree.root.right.value)
+
+    choice=select_choices()
+    while choice != "Exit":
+        os.system('cls')
+        if choice == "insert":
+            val=input("Enter the value to insert in the Binary Search Tree " + choice + " :")
+            my_tree.insert(val)
+        elif choice == "search":
+            val=input("Enter the value to find in the Binary Search Tree " + choice + " :")
+            print(my_tree.contains(val))
+        else:
+            print ("Invalid Choice....")
+
+        choice=select_choices()
+
 #    print(my_tree.root.left.value)
 #    my_tree.insert(50)
 #    print(my_tree.root.right.value)
