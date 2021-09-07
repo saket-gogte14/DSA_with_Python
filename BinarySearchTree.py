@@ -67,7 +67,3 @@ if __name__ == '__main__':
             print ("Invalid Choice....")
 
         choice=select_choices()
-
-#    print(my_tree.root.left.value)
-#    my_tree.insert(50)
-#    print(my_tree.root.right.value)
