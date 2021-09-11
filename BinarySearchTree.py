@@ -44,9 +44,70 @@ class BinarySearchTree:
                 temp = temp.right
         
         return False
+    
+    def BFS(self):
+        current_node = self.root
+        queue = []
+        results = []
+        queue.append(current_node)
+
+        while len(queue) > 0:
+            current_node = queue.pop(0)
+            results.append(current_node.value)
+
+            if current_node.left is not None:
+                queue.append(current_node.left)
+            if current_node.right is not None:
+                queue.append(current_node.right)
+        
+        return results
+    
+    def dfs_pre_order(self):
+        results = []
+
+        def traverse(current_node):
+            results.append(current_node.value)
+            if current_node.left is not None:
+                traverse(current_node.left)
+            if current_node.right is not None:
+                traverse(current_node.right)
+        
+        traverse(self.root)
+
+        return results
+
+    def dfs_post_order(self):
+        results = []
+
+        def traverse(current_node):                
+            if current_node.left is not None:
+                traverse(current_node.left)
+            if current_node.right is not None:
+                traverse(current_node.right)
+
+            results.append(current_node.value)
+        
+        traverse(self.root)
+
+        return results
+
+    def dfs_in_order(self):
+        results = []
+
+        def traverse(current_node):
+            if current_node.left is not None:
+                traverse(current_node.left)
+            results.append(current_node.value) 
+            if current_node.right is not None:
+                traverse(current_node.right)
+
+        
+        traverse(self.root)
+
+        return results    
 
 def select_choices():
-    print ("\n\ninsert) Add to the BST \nsearch) Search element from the BST \nExit) Exit the menu")
+    print ("\n\ninsert) Add to the BST \nsearch) Search element from the BST \nBFS) Perform a BFS on the BST \nDFSPreorder) Perform a DFS PreOrder on the BST \nDFSPostorder) Perform a DFS PostOrder on the BST \nDFSInorder) Perform a DFS InOrder on the BST \nExit) Exit the menu")
     
     return input("\nEnter the choices from the above display:")
     
@@ -63,6 +124,14 @@ if __name__ == '__main__':
         elif choice == "search":
             val=input("Enter the value to find in the Binary Search Tree " + choice + " :")
             print(my_tree.contains(val))
+        elif choice == "BFS":
+            print(my_tree.BFS())
+        elif choice == "DFSPreorder":
+            print(my_tree.dfs_pre_order())
+        elif choice == "DFSPostorder":
+            print(my_tree.dfs_post_order())
+        elif choice == "DFSInorder":
+            print(my_tree.dfs_in_order())
         else:
             print ("Invalid Choice....")
 
