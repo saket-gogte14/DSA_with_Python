@@ -34,4 +34,4 @@
 # Few Use Cases
 [DSA Use Case to find Items in Common](ItemsInCommon.py)
 
-[Use Case to encode a string with Python Function callsand lists](EncodeStringWithIndex.py)
+[Use Case to encode a string with Python Function calls and lists](EncodeStringWithIndex.py)
